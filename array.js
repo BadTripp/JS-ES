@@ -10,3 +10,4 @@ var text="";
             console.log(text);
         }
         ul.innerHTML("c");
+    
