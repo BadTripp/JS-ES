@@ -1,10 +1,12 @@
 pallina=document.getElementById("pallina");
 tela=document.getElementById("tela");
 stopB=document.getElementById("buttonStop");
+startB=document.getElementById("button");
 step=0;
 id=0;
 direzione=0; // 0 sopra
 function avvio(){
+    startB.disabled=true;
     if(direzione == 0)
     {id=setInterval(movimento,1);}
     else{
@@ -27,6 +29,7 @@ function movimentoDown(){
     if(step <= 0){clearInterval(id1),id=setInterval(movimento,1)}
 }
 function stop(){
+    startB.disabled=false;
     clearInterval(id);
     clearInterval(id1);
 }
