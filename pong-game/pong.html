@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <script async type="text/javascript" src="./pong.js"></script>
+    <style>
+        #tela {
+            width: 500px;
+            height: 500px;
+            background-color: darkblue;
+            position: relative;
+        }
+
+        #pallina {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            left:225px;
+            position: absolute;
+            background-color: gold;
+        }
+        #barra {
+            width: 100px;
+            height: 5%;
+            left:225px;
+            bottom: 10px;
+            position: absolute;
+            background-color: rgb(8, 8, 7);
+        }
+        #terreno {
+            width: 100%;
+            height: 2%;
+            bottom: 1px;
+            position: absolute;
+            background-color: rgb(204, 18, 18);
+        }
+        #testo{
+            visibility: hidden;
+            position: absolute;
+            left:30%;
+            top:45%;
+            font-size: 30px;
+            color: brown;
+        }
+    </style>
+</head>
+
+<body onkeydown="comandi(event)">
+    <div id="tela">
+        <div id="pallina"></div>
+        <div id="barra"></div>
+        <div id="terreno"></div>
+        <div id="testo">Game Over</div>
+    </div>
+    Controlli
+    <button onclick="avvio()" id="button">Start</button>
+    <button onclick="stop()" id="buttonStop">Stop</button>
+    Speed:
+    <button onclick="changeSpeed(0)" id="buttonStop">+</button>
+    <button onclick="changeSpeed(1)" id="buttonStop">-</button>
+</body>
+
+</html>
