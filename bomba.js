@@ -1,5 +1,5 @@
 var timer = 0;
-let i = 0;
+var i = 0;
 let id = 0;
 let end = 0;
 function esplosione() {
@@ -26,5 +26,10 @@ function conto(t) {
   }
 }
 function clearInput() {
+  document.getElementById("imgBomba").src = "./immagini/bomba.jpg";
   document.getElementById("timer").value = "";
+  document.getElementById("rovescia").innerText ="";
+  clearInterval(id);
+  end = 0;
+  i=0;
 }

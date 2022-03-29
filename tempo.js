@@ -6,9 +6,9 @@ function orologio (){
 }
 function update(){
     let oggi = new Date ();
-     h = oggi.getHours();
-     m = oggi.getMinutes();
-     s = oggi.getSeconds();
+    h = oggi.getHours();
+    m = oggi.getMinutes();
+    s = oggi.getSeconds();
      h=addZero(h);
      m=addZero(m);
      s=addZero(s);
