@@ -7,7 +7,6 @@ function caduta(){
 }
 function movimentoY(){
     step+=1;
-    console.log(pallina.offsetTop)
     document.getElementById("pallina").style.top = step+"px";
-    if(pallina.offsetTop > 450){clearInterval(id)}
+    if(pallina.offsetTop > tela.offsetHeight-pallina.offsetWidth){clearInterval(id)}
 }
