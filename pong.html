@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
-    <script async type="text/javascript" src="./pong.js"></script>  
+    <script async type="text/javascript" src="./pong.js"></script>
     <style>
-        #tela{
+        #tela {
             width: 500px;
             height: 500px;
             background-color: darkblue;
             position: relative;
         }
-        #pallina{
+
+        #pallina {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             position: absolute;
             background-color: gold;
         }
-    </style> 
+    </style>
 </head>
+
 <body>
     <div id="tela">
         <div id="pallina"></div>
@@ -33,4 +36,5 @@
     <button onclick="changeSpeed(0)" id="buttonStop">+</button>
     <button onclick="changeSpeed(1)" id="buttonStop">-</button>
 </body>
+
 </html>

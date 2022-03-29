@@ -28,8 +28,8 @@ function conto(t) {
 function clearInput() {
   document.getElementById("imgBomba").src = "./immagini/bomba.jpg";
   document.getElementById("timer").value = "";
-  document.getElementById("rovescia").innerText ="";
+  document.getElementById("rovescia").innerText = "";
   clearInterval(id);
   end = 0;
-  i=0;
+  i = 0;
 }
