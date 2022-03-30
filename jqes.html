@@ -12,17 +12,24 @@
     Base<input type="text" id="base">
     Altezza<input type="text" id="altezza">
     <select id="menu">
-        <option>Quadrato</option>
-        <option>Triangolo</option>
+        <option value="rettangolo">rettangolo</option>
+        <option value="triangolo">triangolo</option>
     </select>
+    <p id="risultato"></p>
     <button  id="btn">Calcola Area</button>
     </div>
 
     <script>
         $(document).ready(function(){
-            $("btn").click(function (){
-                base = $("base").val;
-                console.log(base);
+            $("#btn").click(function (){
+                 base = $("#base").val();
+                 altezza = $("#altezza").val();
+                 if($("#menu").val() == "rettangolo"){area=base*altezza}
+                 else{area=base*altezza/2}
+                 
+                 
+                 $("#risultato").text(area)   
+                
             })
         })
         
