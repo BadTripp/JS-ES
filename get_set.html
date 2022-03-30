@@ -27,6 +27,7 @@
         </div>
     <script>
         $(document).ready(function(){
+            //btn leggi
             $("#btnleggidiv").click(function(){
                 $("#risultato").text($("#mioDiv").text())
             });
@@ -39,7 +40,7 @@
             $("#btnleggiattr").click(function(){
                 $("#risultato").text($("a").attr("href"))
             });
-            //scrivi
+            //btn scrivi
             $("#btnscrividiv").click(function(){
                 $("#mioDiv").text($("#casella").val())
             });
