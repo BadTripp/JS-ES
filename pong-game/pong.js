@@ -4,10 +4,12 @@ stopB=document.getElementById("buttonStop");
 startB=document.getElementById("button");
 barra=document.getElementById("barra");
 terreno=document.getElementById("terreno");
+gameoverTxt=document.getElementById("testo");
+scoreTxt=document.getElementById("score");
 pallinaLeft=pallina.offsetLeft;
 pallinaTop=pallina.offsetTop;
 speed=1;
-
+score=0;
 stept=0;
 stepl=0;
 id=0;
@@ -15,7 +17,12 @@ direzione=0; // 0 sopra
 
 
 function avvio(){
+    pallina.style.left=200+"px";
+    pallina.style.top=0+"px";
+    updateScore(0);
+    gameoverTxt.style.visibility="hidden";
     stepl=pallinaLeft;
+    stept=0;
     startB.disabled=true;
     switch(direzione){
         case direzione = 0:
@@ -43,7 +50,7 @@ function movimento(){
     stepl+=speed;
     document.getElementById("pallina").style.top= stept+"px";
     document.getElementById("pallina").style.left = stepl+"px";
-    if(stepl > 450 || stepl >= 450 || controlloCollisioni(barra,pallina) ){clearInterval(id); id1=setInterval(movimentoDown,1)}
+    if(stepl > 450 || stepl >= 450 || controlloCollisioni(barra,pallina) ){ updateScore(1); clearInterval(id); id1=setInterval(movimentoDown,1)}
 }
 function movimentoDown(){
     (controlloCollisioni(terreno,pallina)) ? stop() : "";
@@ -54,7 +61,7 @@ function movimentoDown(){
     stept+=speed;
     document.getElementById("pallina").style.top = stept+"px";
     document.getElementById("pallina").style.left = stepl+"px";
-    if(stept >= 450 || stepl <= 0 || controlloCollisioni(barra,pallina)){clearInterval(id1),id2=setInterval(movimentoLUP,1)}
+    if(stept >= 450 || stepl <= 0 || controlloCollisioni(barra,pallina)){ updateScore(1);clearInterval(id1),id2=setInterval(movimentoLUP,1)}
 }
 function movimentoLUP(){
     (controlloCollisioni(terreno,pallina)) ? stop() : "";
@@ -66,7 +73,7 @@ function movimentoLUP(){
     
     document.getElementById("pallina").style.top= stept+"px";
     document.getElementById("pallina").style.left = stepl+"px";
-    if(stepl <= 0 || stept <= 0 || controlloCollisioni(barra,pallina)){clearInterval(id2); id3=setInterval(movimentoRUP,1)}
+    if(stepl <= 0 || stept <= 0 || controlloCollisioni(barra,pallina)){updateScore(1);clearInterval(id2); id3=setInterval(movimentoRUP,1)}
 }
 function movimentoRUP(){
     (controlloCollisioni(terreno,pallina)) ? stop() : "";
@@ -77,7 +84,7 @@ function movimentoRUP(){
     stepl+=speed;
     document.getElementById("pallina").style.top= stept+"px";
     document.getElementById("pallina").style.left = stepl+"px";
-    if(stept <= 0 || stepl >= 450){clearInterval(id3); id=setInterval(movimento,1)}
+    if(stept <= 0 || stepl >= 450){updateScore(1); clearInterval(id3); id=setInterval(movimento,1)}
 }
 function stop(){
     startB.disabled=false;
@@ -85,6 +92,8 @@ function stop(){
     clearInterval(id1);
     clearInterval(id2);
     clearInterval(id3);
+    gameoverTxt.style.visibility="visible";
+    score=0;
 }
 function changeSpeed(controllo){
     (controllo == 0) ? speed+=1 : speed-=1; 
@@ -127,4 +136,8 @@ function comandi(event){
             (barra.offsetLeft < 500-99) ? barra.style.left = barra.offsetLeft+4+"px": "";
             break;
     }
+}
+function updateScore(value){
+    score+=value
+    scoreTxt.innerText="Score:"+score;
 }

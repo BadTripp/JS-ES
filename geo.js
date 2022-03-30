@@ -1,4 +1,5 @@
 function rileva(){
+    
     if(navigator.geolocation){
          navigator.geolocation.getCurrentPosition(scriviposizione);
     }else{
