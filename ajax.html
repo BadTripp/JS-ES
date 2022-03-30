@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        table{
+            border: 1px solid black;
+        }
+        tr{
+            border: 1px solid black;
+        }
+        td{
+            border: 1px solid black;
+        }
+    </style>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btnCarica").click(function() {
+                $.ajax({
+                    url:"https://jsonplaceholder.typicode.com/users",
+                    method:"get",
+                    success: function (risultato){
+                        let lista="  ";
+                        for(var utente of risultato)
+                            { 
+                               //lista+= "<tr><td>"+"Name:</td><td>"+utente.name +"</td><td>"+"Username</td><td>"+utente.username +"</td><td>"+"Email</td><td>"+utente.email +"</td>"+  "</td><td>"+"Company:</td><td>"+utente.company.name +"</td></tr>";
+                                $("#risultato").append("<tr><td>"+utente.name+"</td>"+"<td>"+utente.username+"</td>"+"<td>"+utente.email+"</td>"+"<td>"+utente.company.name+"</td></tr>")
+                            }
+                            
+                    },
+                    error:function (errore){
+                        console.error("Errore:"+errore)
+                    }
+
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div><button id="btnCarica">Carica Dati</button></div>
+    <table class="table" id="risultato">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Cognome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Company</th>
+          </tr>
+
+    </table>
+  <!-- name 
+  user name 
+  email 
+  namecompany -->
+</body>
+</html>
