@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script type="module">
+    import {Pizza} from "./pizza.js";
+    let margherita = new Pizza("Margherita",["pomodoro","mozzarella","Basilico"],6.5);
+    let marinara = new Pizza("marinara",["pomodoro","alici"],7.5);
+    console.log(margherita.descrizione());
+
+
+    // function caricaObj() {
+    //     let pizza = {
+    //         nome: "margherita",
+    //         ingredienti: ["mozzarella", "pomodoro", "basilico"],
+    //         prezzo: 6.5,
+    //         descrizione: function () {
+    //             let desc = "la pizza" + this.nome + " e' fatta con " + this.ingredienti.toString() + "e costa " + this.prezzo;
+    //             return desc;
+    //         }
+    //     }
+    //     document.getElementById("nome").innerText = pizza.nome;
+    //     document.getElementById("ingredienti").innerText = "Ingredienti:" + pizza.ingredienti.toString();
+    //     document.getElementById("prezzo").innerText = "Prezzo:" + pizza.prezzo;
+    //     document.getElementById("descrizione").innerText = pizza.descrizione();
+        
+    // }
+
+</script>
+
+<body onload="caricaObj()">
+    <div id="nome"></div>
+    <div id="ingredienti"></div>
+    <div id="prezzo"></div>
+    <div id="descrizione"></div>
+</body>
+
+</html>
