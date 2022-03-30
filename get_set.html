@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="mioDiv">la pizza margherita e' buona </div>
+        <div>
+            <input type="text" value="pippo" id="casella">
+            <span  id="mioSpan"><mark> gelato alla nocciola e' buono</mark></span>
+            <div><a href="https://www.google.it">Vai su google</a></div>
+        </div>
+        <div><button id="btnleggidiv">leggi div</button></div>
+        <div><button id="btnleggiinput">leggi input </button></div>
+        <div><button id="btnleggihtml">leggi html span</button></div>
+        <div><button id="btnleggiattr">leggi attr</button></div>
+        <div><button id="btnscrividiv">scrivi div </button></div>
+        <div><button id="btnscriviinput">scrivi input </button></div>
+        <div><button id="btnscrivihtml">scrivi html</button></div>
+        <div><button id="btnscriviattr">scrivi attr</button></div>
+
+        <div id="risultato">
+        </div>
+    <script>
+        $(document).ready(function(){
+            $("#btnleggidiv").click(function(){
+                $("#risultato").text($("#mioDiv").text())
+            });
+            $("#btnleggiinput").click(function(){
+                $("#risultato").text($("#casella").val())
+            });
+            $("#btnleggihtml").click(function(){
+                $("#risultato").text($("#mioSpan").html())
+            });
+            $("#btnleggiattr").click(function(){
+                $("#risultato").text($("a").attr("href"))
+            });
+            //scrivi
+            $("#btnscrividiv").click(function(){
+                $("#mioDiv").text($("#casella").val())
+            });
+            $("#btnscriviinput").click(function(){
+                $("#casella").val($("#mioSpan").text())
+            });
+            $("#btnscrivihtml").click(function(){
+                $("#mioSpan").html($("#casella").val())
+            });
+            $("#btnscriviattr").click(function(){
+                $("a").attr("href",$("#casella").val())
+            });
+
+        })
+        
+    </script>
+</body>
+</html>

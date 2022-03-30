@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div>
+    Base<input type="text" id="base">
+    Altezza<input type="text" id="altezza">
+    <select id="menu">
+        <option>Quadrato</option>
+        <option>Triangolo</option>
+    </select>
+    <button  id="btn">Calcola Area</button>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("btn").click(function (){
+                base = $("base").val;
+                console.log(base);
+            })
+        })
+        
+    </script>
+</body>
+</html>
