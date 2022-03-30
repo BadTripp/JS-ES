@@ -9,11 +9,12 @@
 </head>
 <body>
     <div>
-    Base<input type="text" id="base">
-    Altezza<input type="text" id="altezza">
-    <select id="menu">
+    <p id="txtBase">Base</p><input type="text" id="base">
+    <p id="txtAltezza">Altezza</p><input type="text" id="altezza">
+    <select id="menu" >
         <option value="rettangolo">rettangolo</option>
         <option value="triangolo">triangolo</option>
+        <option value="cerchio">cerchio</option>
     </select>
     <p id="risultato"></p>
     <button  id="btn">Calcola Area</button>
@@ -21,12 +22,34 @@
 
     <script>
         $(document).ready(function(){
+            $("#menu").change(function(){
+                if($(this).val() == "cerchio"){
+                    $("#txtBase").html("Raggio")
+                    $("#txtAltezza").hide();
+                    $("#altezza").hide();
+                }else{
+                    $("#txtAltezza").show();
+                    $("#altezza").show();
+                }
+                
+            })
+
             $("#btn").click(function (){
                  base = $("#base").val();
                  altezza = $("#altezza").val();
-                 if($("#menu").val() == "rettangolo"){area=base*altezza}
-                 else{area=base*altezza/2}
-                 
+                 switch ($("#menu").val()){
+                     case"rettangolo":
+                     area=base*altezza
+                     break;
+                     case"triangolo":
+                     area=base*altezza/2
+                     break;
+                     case"cerchio":
+                     area=base*base*3.14;
+                     console.log(area);
+                     break;
+                     
+                 }
                  
                  $("#risultato").text(area)   
                 
