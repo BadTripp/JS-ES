@@ -21,6 +21,7 @@
     <script>
         $(document).ready(function(){
             $("#btnCarica").click(function() {
+
                 $.ajax({
                     url:"https://jsonplaceholder.typicode.com/users",
                     method:"get",
@@ -39,12 +40,28 @@
 
                 });
             });
+            $("#btnPost").click(function(){
+                $.ajax({
+                    url:"https://jsonplaceholder.typicode.com/posts",
+                    method:"post",
+                    data:{
+                        title:$("#txtTitolo").val(),
+                        body:$("#txtMessaggio").val(),
+                        userId:1
+                    },
+                    success:function(risultato){
+                        var testo=JSON.stringify(risultato);
+                        $("#risultatoPost").text(testo);
+                        console.log("c");
+                    }
+                });
+            })
         });
     </script>
 </head>
 <body>
     <div><button id="btnCarica">Carica Dati</button></div>
-    <table class="table" id="risultato">
+    <table class="table table-striped table-dark" id="risultato">
         <tr>
             <th scope="col">Nome</th>
             <th scope="col">Cognome</th>
@@ -53,6 +70,16 @@
           </tr>
 
     </table>
+    <div>
+        <div><label for=""></label>Titolo:<input id="txtTitolo" type="text"></div>
+        <div><label for=""></label>Body:<input id="txtMessaggio" type="text"></div>
+        <button id="btnPost">Invia post</button>
+        <div id="risultatoPost"></div>
+    </div>
+    <script >
+        
+    </script>
+
   <!-- name 
   user name 
   email 
